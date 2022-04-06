@@ -1,6 +1,4 @@
 <?php
-//embed_twine_TESTaddFooterPassage();
-//embed_twine_TESTuploadPath();
 
 // Upload file
 if(isset($_POST['but_submit'])){

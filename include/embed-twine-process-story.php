@@ -1,19 +1,5 @@
 <?php
 
-function embed_twine_TESTaddFooterPassage(){
-
-    echo "<div class='updated notice is-dismissible'><p>", basename(__FILE__), " - " , __FUNCTION__, "(): " , phpversion(), " - " , time(), "</p></div>" , "<br>", PHP_EOL;
-
-    $path = wp_upload_dir()["path"] . "/About.html";
-    embed_twine_addFooterPassage($path);
-}
-
-function embed_twine_TESTuploadPath(){
-  embed_twine_getFullStoryPathFromName("Story");
-  echo "", "<br>", PHP_EOL;
-  embed_twine_getRelativeStoryPathFromName("Story");
-}
-
 function embed_twine_buildFooterPassageElementOpen($footerPID){
 
   $passageOpenTagBegin = "<tw-passagedata pid=\"";
