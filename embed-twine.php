@@ -25,6 +25,14 @@ function embed_twine_uploadfile(){
     include "include/embed-twine-upload-file.php";
 }
 
+add_action( 'wp_ajax_embed_twine_upload', 'embed_twine_ajax_upload' );
+ 
+function embed_twine_ajax_upload() {
+
+    echo "[embed_twine story=\"Story\"]";
+    wp_die(); // All ajax handlers die when finished
+}
+
 // Add shortcode
 function embed_twine_shortcodes_init()
 {
