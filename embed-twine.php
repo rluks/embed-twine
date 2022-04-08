@@ -25,11 +25,10 @@ function embed_twine_uploadfile(){
 }
 
 add_action( 'wp_ajax_embed_twine_upload', 'embed_twine_ajax_upload' );
- 
 function embed_twine_ajax_upload() {
 
     echo "[embed_twine story=\"Story\"]";
-    wp_die(); // All ajax handlers die when finished
+    wp_die();
 }
 
 // Add shortcode

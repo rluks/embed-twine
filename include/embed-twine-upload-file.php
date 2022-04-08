@@ -20,11 +20,11 @@ if(isset($_POST['but_submit'])){
        throw new Exception('Unable to upload file.');
     }
   }
-}*/
+}
 
 function embed_twine_your_custom_callback($dir, $name, $ext){
     return $name;
-}
+}*/
 
 ?>
 
@@ -62,29 +62,4 @@ function embed_twine_your_custom_callback($dir, $name, $ext){
 
 <p><i>Hope this plugin serves you well!<br> You can appreciate the effort put into it by <a target="_blank" href="https://wordpress.org/support/plugin/embed-twine/reviews/">rating it</a> and providing feedback, thank you.</i></p>
 </div>
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-function createQuote(data) {
-
-  $.ajax({
-    type: "POST",
-    url: "admin-ajax.php",
-    data: {action: "embed_twine_upload", data:data}
-  }).then(data => {
-    document.getElementById("embed_twine_shortcode").value = data;
-  }).catch(error => {
-    alert("error");
-    console.log("ERROR", error);
-    document.getElementById("embed_twine_shortcode").value = "eroooooor";
-  });
-}
-
-$("#embed_twine_form").on("submit", function(event) {
-  event.preventDefault();
-  const data = $(this).serialize();
-  createQuote(data);
-});
-</script>
 
