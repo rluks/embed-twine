@@ -14,12 +14,11 @@ require_once('include/embed-twine-parent-page.php');
 require_once('include/embed-twine-process-story.php');
 
 // Add plugin to WP menu
+add_action("admin_menu", "embed_twine_customplugin_menu");
 function embed_twine_customplugin_menu() {
 
-    add_menu_page("Embed Twine", "Embed Twine","manage_options", __FILE__, "embed_twine_uploadfile");
+    $menu = add_menu_page("Embed Twine", "Embed Twine","manage_options", __FILE__, "embed_twine_uploadfile");
 }
-
-add_action("admin_menu", "embed_twine_customplugin_menu");
 
 function embed_twine_uploadfile(){
     include "include/embed-twine-upload-file.php";
