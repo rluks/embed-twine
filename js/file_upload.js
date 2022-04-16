@@ -1,23 +1,23 @@
-function createQuote(data) {
-  console.log("createQuote");
-  console.log(ajax_url);
-    
-  jQuery.ajax({
-    type: "POST",
-    url: ajax_url,
-    data: {action: "embed_twine_upload", data:data}
-  }).then(data => {
-    console.log("SUCCESS");
-    document.getElementById("embed_twine_shortcode").value = data;
-  }).catch(error => {
-    alert("error");
-    console.log("ERROR", error);
-    document.getElementById("embed_twine_shortcode").value = "eroooooor";
+jQuery(document).ready(function(){
+  jQuery("#embed_twine_file_submit").click(function(e){
+    e.preventDefault();
+
+    console.log("jq post");
+
+    jQuery.ajax({
+        type: 'POST',
+        url: MyAjax.ajaxurl,
+        data: {"action": "embed_twine_upload", data:{"BLEM":100}},
+        success: function(data){
+            //alert(data);
+            console.log("SUCCESS");
+            console.log(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) { 
+          console.log("ERROR");
+          console.log(textStatus);
+        }
+    });
+
   });
-}
-  
-jQuery("#embed_twine_form").on("submit", function(event) {
-  event.preventDefault();
-  const data = $(this).serialize();
-  createQuote(data);
 });
