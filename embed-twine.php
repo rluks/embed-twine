@@ -16,8 +16,7 @@ require_once('include/embed-twine-process-story.php');
 // Add plugin to WP menu
 add_action("admin_menu", "embed_twine_customplugin_menu");
 function embed_twine_customplugin_menu() {
-
-    $menu = add_menu_page("Embed Twine", "Embed Twine","manage_options", __FILE__, "embed_twine_uploadfile");
+    add_management_page("Embed Twine", "Embed Twine", "manage_options", __FILE__, "embed_twine_uploadfile");
 }
 
 function embed_twine_uploadfile(){
