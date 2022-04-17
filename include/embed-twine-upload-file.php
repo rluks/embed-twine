@@ -17,9 +17,11 @@
 <form method='post' action='' name='myform' id="embed_twine_form" enctype='multipart/form-data'>
   <ul>
       <li><input class='button-secondary' id="embed_twine_file_select" type='file' name='file' accept="text/html"></li>
-      <li><input class='button-primary' id="embed_twine_file_submit" type='submit' name='but_submit' value='Upload'></li>
   </ul>
 </form>
+
+<div id="embed_twine_status">
+</div>
 
 <h2>3. Copy shortcode</h2>
 <p>Copy this shortcode:</p>
