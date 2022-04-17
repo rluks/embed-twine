@@ -14,10 +14,11 @@ jQuery(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(data){
-            console.log("SUCCESS");
             var msgObj = JSON.parse(data);
             console.log(msgObj);    
-            jQuery("#embed_twine_shortcode").val(msgObj.shortcode);
+            var shortcode = jQuery("#embed_twine_shortcode")
+            shortcode.val(msgObj.shortcode);
+            shortcode.focus();
         },
         error: function(jqXHR, textStatus, errorThrown) { 
           console.log("ERROR");
