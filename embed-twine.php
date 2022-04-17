@@ -51,7 +51,7 @@ function embed_twine_ajax_upload() {
         $filepath = "";
         if ( $movefile && ! isset( $movefile['error'] ) ) {
            $filepath = $movefile['file'];
-           $message['original-file'] = $movefile['file'];
+           $message['originalfile'] = $movefile['file'];
            embed_twine_addFooterPassage($filepath, $message);
         } else {
            throw new Exception('Unable to upload file.');

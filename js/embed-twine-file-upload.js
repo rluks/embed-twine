@@ -10,6 +10,9 @@ jQuery(document).ready(function(){
     status.empty();
     status.removeClass("error");
 
+    var shortcode = jQuery("#embed_twine_shortcode");
+    shortcode.val("");
+
     jQuery.ajax({
         type: 'POST',
         url: MyAjax.ajaxurl,
@@ -18,10 +21,18 @@ jQuery(document).ready(function(){
         contentType: false,
         processData: false,
         success: function(data){
-            status.append("Upload complete.");
+            status.append("Upload complete.<br>");
+
             var msgObj = JSON.parse(data);
             console.log(msgObj);    
-            var shortcode = jQuery("#embed_twine_shortcode")
+            status.append("Unmodified file is stored in " + msgObj.originalfile + "<br>");
+
+            if(msgObj.twineerror){
+              status.append("Twine story processing error: " + msgObj.twineerror + "<br>");
+              status.addClass("error");
+              return;
+            }
+       
             shortcode.val(msgObj.shortcode);
             shortcode.focus();
         },
