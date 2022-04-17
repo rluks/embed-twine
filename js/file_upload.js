@@ -15,7 +15,9 @@ jQuery(document).ready(function(){
         processData: false,
         success: function(data){
             console.log("SUCCESS");
-            console.log(data);
+            var msgObj = JSON.parse(data);
+            console.log(msgObj);    
+            jQuery("#embed_twine_shortcode").val(msgObj.shortcode);
         },
         error: function(jqXHR, textStatus, errorThrown) { 
           console.log("ERROR");

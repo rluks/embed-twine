@@ -24,17 +24,16 @@ function embed_twine_uploadfile(){
     include "include/embed-twine-upload-file.php";
 }
 
-//Include Javascript library
 wp_enqueue_script('eventism', plugins_url( '/js/file_upload.js' , __FILE__ ) , array( 'jquery' ));
-// including ajax script in the plugin Myajax.ajaxurl
 wp_localize_script( 'eventism', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php')));
-
 wp_register_script( "eventism", plugins_url( '/js/file_upload.js' , __FILE__ ), array('jquery') );
 wp_enqueue_script( 'jquery' );
 
 add_action( 'wp_ajax_nopriv_embed_twine_upload', 'embed_twine_ajax_upload');
 add_action( 'wp_ajax_embed_twine_upload', 'embed_twine_ajax_upload' );
 function embed_twine_ajax_upload() {
+
+    $message = array();
 
     if($_FILES['file']['name'] != ''){
         $uploadedfile = $_FILES['file'];
@@ -45,15 +44,18 @@ function embed_twine_ajax_upload() {
         $filepath = "";
         if ( $movefile && ! isset( $movefile['error'] ) ) {
            $filepath = $movefile['file'];
-           echo "<div class='updated notice is-dismissible'><p>", "Original Twine story uploaded to ", $movefile['file'], "</p></div>" , "<br>", PHP_EOL;
-           embed_twine_addFooterPassage($filepath);
+           //echo "<div class='updated notice is-dismissible'><p>", "Original Twine story uploaded to ", $movefile['file'], "</p></div>" , "<br>", PHP_EOL;
+           $message['original-file'] = $movefile['file'];
+           embed_twine_addFooterPassage($filepath, $message);
         } else {
-           echo "<div class='error notice'></p>", basename(__FILE__), " - " , $movefile['error'], "</p></div>" , "<br>", PHP_EOL;
+           //echo "<div class='error notice'></p>", basename(__FILE__), " - " , $movefile['error'], "</p></div>" , "<br>", PHP_EOL;
+           $message['move-error'] = $movefile['error'];
            throw new Exception('Unable to upload file.');
         }
     }
 
-    echo "[embed_twine story=\"Story\"]";
+    $message['shortcode'] = "LALA";
+    echo json_encode($message);
     wp_die();
 }
 
