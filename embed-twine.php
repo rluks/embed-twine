@@ -36,10 +36,30 @@ add_action( 'wp_ajax_nopriv_embed_twine_upload', 'embed_twine_ajax_upload');
 add_action( 'wp_ajax_embed_twine_upload', 'embed_twine_ajax_upload' );
 function embed_twine_ajax_upload() {
 
+    if($_FILES['file']['name'] != ''){
+        $uploadedfile = $_FILES['file'];
+        $upload_overrides = array( 'test_form' => false, 'unique_filename_callback' => 'embed_twine_your_custom_callback' );
+    
+        $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+    
+        $filepath = "";
+        if ( $movefile && ! isset( $movefile['error'] ) ) {
+           $filepath = $movefile['file'];
+           echo "<div class='updated notice is-dismissible'><p>", "Original Twine story uploaded to ", $movefile['file'], "</p></div>" , "<br>", PHP_EOL;
+           embed_twine_addFooterPassage($filepath);
+        } else {
+           echo "<div class='error notice'></p>", basename(__FILE__), " - " , $movefile['error'], "</p></div>" , "<br>", PHP_EOL;
+           throw new Exception('Unable to upload file.');
+        }
+    }
+
     echo "[embed_twine story=\"Story\"]";
     wp_die();
 }
 
+function embed_twine_your_custom_callback($dir, $name, $ext){
+    return $name;
+}
 
 
 // Add shortcode

@@ -3,17 +3,16 @@ jQuery(document).ready(function(){
 
     e.preventDefault();
 
-    //const data = new FormData(this);
-    //console.log(data);
+    var formData = new FormData(this);
+    formData.append("action", "embed_twine_upload");
 
     jQuery.ajax({
         type: 'POST',
         url: MyAjax.ajaxurl,
-        //contentType: "multipart/form-data",       //When sending data to the server, use this content type.
-        //dataType : "text",                        //The type of data that you're expecting back from the server. If none is specified, jQuery will try to infer it based on the MIME type of the response
-        data: {"action": "embed_twine_upload", data:{kk:"kkk"}},
-        //contentType: false,
-        //processData:false,
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
         success: function(data){
             console.log("SUCCESS");
             console.log(data);
@@ -21,6 +20,7 @@ jQuery(document).ready(function(){
         error: function(jqXHR, textStatus, errorThrown) { 
           console.log("ERROR");
           console.log(textStatus);
+          console.log(errorThrown);
         }
     });
 
