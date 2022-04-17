@@ -33,7 +33,10 @@ p {
 }
 
 
-
+#embed_twine_status{
+  margin-top: 1.5rem;
+  font-weight: 100;
+}
 
 
 </style>
