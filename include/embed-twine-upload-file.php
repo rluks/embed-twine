@@ -1,3 +1,43 @@
+<style>
+
+ol {
+  list-style: none;
+  counter-reset: steps;
+  margin-top: 1.5rem;
+}
+ol li {
+  counter-increment: steps;
+  font-size: 16px;
+}
+ol li::before {
+  content: counter(steps);
+  margin-right: 0.5rem;
+  background: #fff;
+  color: #1D2327;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 2rem;
+}
+
+p {
+  font-size: 16px;
+}
+
+
+
+
+
+</style>
+
 <div class="wrap">
 <h1>Embed your story in 4 steps</h1>
 
@@ -15,9 +55,7 @@
 <p>Upload the exported .html file here: </p>
 
 <form method='post' action='' name='myform' id="embed_twine_form" enctype='multipart/form-data'>
-  <ul>
-      <li><input class='button-secondary' id="embed_twine_file_select" type='file' name='file' accept="text/html"></li>
-  </ul>
+  <input class='button-secondary inputfile' id="embed_twine_file_select" type='file' name='file' accept="text/html">
 </form>
 
 <div id="embed_twine_status">
