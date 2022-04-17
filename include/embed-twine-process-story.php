@@ -94,7 +94,7 @@ function embed_twine_addFooterPassage($path, &$message){
 
     //find maxPID tw-passagedata pid="NUM"
     if(!preg_match_all('/(tw-passagedata pid=")(\d+)/', $contents, $matches)){
-        $message['twine-error'] = "Couldn't find passagedata.";
+        $message['twineerror'] = "Couldn't find passagedata.";
         return;
     }
 
@@ -104,7 +104,7 @@ function embed_twine_addFooterPassage($path, &$message){
     //find </tw-storydata>
     $pos = strpos($contents, "</tw-storydata>");
     if ($pos === false) {
-        $message['twine-error'] = "tw-storydata not found.";
+        $message['twineerror'] = "tw-storydata not found.";
         return;
     }
 
@@ -128,7 +128,7 @@ function embed_twine_addFooterPassage($path, &$message){
       //footer exists
       $posFooterEnd = strpos($contents, "</tw-passagedata>", $posFooter);
       if ($posFooterEnd === false) {
-        $message['twine-error'] = "PassageFooter missing closing tag.";
+        $message['twineerror'] = "PassageFooter missing closing tag.";
         return;
       }else{
         $passageJS = embed_twine_buildFooterPassageJS($sugarCube);
@@ -143,6 +143,6 @@ function embed_twine_addFooterPassage($path, &$message){
     embed_twine_createPublicFolder();
     file_put_contents($responsiveStoryPath, $contentsFooter);
 
-    $message['processed-file'] = $responsiveStoryPath;
+    $message['processedfile'] = $responsiveStoryPath;
     $message['shortcode'] = "[embed_twine story=\"" . $storyName . "\"]";
 }

@@ -32,6 +32,9 @@ wp_register_script( "clipboard-copy", plugins_url( '/js/embed-twine-clipboard-co
 
 wp_enqueue_script( 'jquery' );
 
+wp_enqueue_style( 'stylesheet' );
+wp_register_style( 'stylesheet', plugins_url('/css/style.css', __FILE__), false, '1.0.0', 'all');
+
 add_action( 'wp_ajax_nopriv_embed_twine_upload', 'embed_twine_ajax_upload');
 add_action( 'wp_ajax_embed_twine_upload', 'embed_twine_ajax_upload' );
 function embed_twine_ajax_upload() {
@@ -43,6 +46,7 @@ function embed_twine_ajax_upload() {
         $upload_overrides = array( 'test_form' => false, 'unique_filename_callback' => 'embed_twine_your_custom_callback' );
     
         $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+        //$movefile['error'] = 100;
     
         $filepath = "";
         if ( $movefile && ! isset( $movefile['error'] ) ) {
