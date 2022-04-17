@@ -43,7 +43,6 @@ function embed_twine_ajax_upload() {
         $upload_overrides = array( 'test_form' => false, 'unique_filename_callback' => 'embed_twine_your_custom_callback' );
     
         $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
-        //$movefile['error'] = 100;
     
         $filepath = "";
         if ( $movefile && ! isset( $movefile['error'] ) ) {

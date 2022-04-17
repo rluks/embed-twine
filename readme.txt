@@ -2,7 +2,7 @@
 Contributors: rluks
 Tags: twine, twine 2, embed, embedding, insert, iframe
 Requires at least: 5.3
-Tested up to: 5.3
+Tested up to: 5.9
 Stable tag: trunk
 Requires PHP: 7.3
 License: GPLv2 or later
@@ -14,10 +14,10 @@ Insert Twine stories into WordPress
 
 Embed Twine makes it easy to insert Twine 2 stories into WordPress pages and posts.
 
-1. Export your Twine 2 story into .html file.
-1. Upload it via plugin interface.
-1. Insert shortcode into the page or post.
-1. Enjoy your embedded story.
+1. Export story from Twine
+1. Upload it
+1. Copy shortcode
+1. Paste shortcode on a page
 
 Furthermore, it provides autoscroll functionality making it easy for users to navigate through your stories.
 
@@ -30,9 +30,13 @@ Plugin is configurable via shortcode parameters.
 
 == Frequently Asked Questions ==
 
+= I installed the plugin, where is it? =
+
+Navigate to your Dashboard screen. In the menu, select "Tools" and "Embed Twine".
+
 = How do I use the shortcode? =
 
-Simply put "[embed_twine]" (without quotes) into your post.
+Simply put the shortcode text in your page or post. Modern Gutenberg (block editor) provides "Shortcode widget". You can use either. 
 
 You can use aditional parameters: "[embed_twine story="Story" aheight=112 autoscroll=true ascroll=100]"
 
@@ -59,7 +63,7 @@ No, this plugin only supports Twine 2 stories.
 
 = Which Twine 2 story formats are supported? =
 
-I've tested it on following formats:
+I've tested following formats:
 * Harlowe 1.2.4
 * SugarCube 2.30.0
 
@@ -72,6 +76,9 @@ I've tested it on following formats:
 5. Insert shortcode.
 
 == Changelog ==
+
+= 0.0.7 =
+* Improved UI/UX
 
 = 0.0.6 =
 * Preserve PassageFooter if it already exists
