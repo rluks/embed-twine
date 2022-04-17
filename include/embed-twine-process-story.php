@@ -90,13 +90,10 @@ function embed_twine_createPublicFolder(){
 // Process file
 function embed_twine_addFooterPassage($path, &$message){
 
-    //$message = array();
-
     $contents = embed_twine_loadFile($path);
 
     //find maxPID tw-passagedata pid="NUM"
     if(!preg_match_all('/(tw-passagedata pid=")(\d+)/', $contents, $matches)){
-        //echo "<div class='error notice'></p>", basename(__FILE__), " - " , __FUNCTION__, "(): " , "Error: Couldn't find passagedata.", "</p></div>" , "<br>", PHP_EOL;
         $message['twine-error'] = "Couldn't find passagedata.";
         return;
     }
@@ -107,7 +104,6 @@ function embed_twine_addFooterPassage($path, &$message){
     //find </tw-storydata>
     $pos = strpos($contents, "</tw-storydata>");
     if ($pos === false) {
-        //echo "<div class='error notice'></p>", basename(__FILE__), " - " , __FUNCTION__, "(): " , "Error: tw-storydata not found.", "</p></div>" , "<br>", PHP_EOL;
         $message['twine-error'] = "tw-storydata not found.";
         return;
     }
@@ -132,7 +128,6 @@ function embed_twine_addFooterPassage($path, &$message){
       //footer exists
       $posFooterEnd = strpos($contents, "</tw-passagedata>", $posFooter);
       if ($posFooterEnd === false) {
-        //echo "<div class='error notice'></p>", basename(__FILE__), " - " , __FUNCTION__, "(): " , "Error:  PassageFooter missing closing tag.", "</p></div>" , "<br>", PHP_EOL;
         $message['twine-error'] = "PassageFooter missing closing tag.";
         return;
       }else{
@@ -149,10 +144,5 @@ function embed_twine_addFooterPassage($path, &$message){
     file_put_contents($responsiveStoryPath, $contentsFooter);
 
     $message['processed-file'] = $responsiveStoryPath;
-    $message['shortcode'] = "[embed_twine story=\"" . $storyName . "\"]";//[embed_twine story="SugarCubeStoryFooter"]
-    //$message['php'] = phpversion();
-
-    //return $message;
-    //echo "<div class='updated notice is-dismissible'><p>", "Processed and modified version is stored in ", $responsiveStoryPath, "</p></div>" , "<br>", PHP_EOL;
-    //echo "<div class='updated notice is-dismissible'><p>", "Processing Twine story complete. <br>Add shortcode [embed_twine story=\"", $storyName, "\"] into post or page." , "</p></div>" , "<br>", PHP_EOL;
+    $message['shortcode'] = "[embed_twine story=\"" . $storyName . "\"]";
 }

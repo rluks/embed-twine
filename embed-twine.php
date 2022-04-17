@@ -44,17 +44,14 @@ function embed_twine_ajax_upload() {
         $filepath = "";
         if ( $movefile && ! isset( $movefile['error'] ) ) {
            $filepath = $movefile['file'];
-           //echo "<div class='updated notice is-dismissible'><p>", "Original Twine story uploaded to ", $movefile['file'], "</p></div>" , "<br>", PHP_EOL;
            $message['original-file'] = $movefile['file'];
-           /*$message2 = */embed_twine_addFooterPassage($filepath, $message);
+           embed_twine_addFooterPassage($filepath, $message);
         } else {
-           //echo "<div class='error notice'></p>", basename(__FILE__), " - " , $movefile['error'], "</p></div>" , "<br>", PHP_EOL;
            $message['move-error'] = $movefile['error'];
            throw new Exception('Unable to upload file.');
         }
     }
 
-    //echo json_encode(array_merge($message, $message2));
     echo json_encode($message);
     wp_die();
 }
