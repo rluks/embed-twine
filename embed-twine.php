@@ -46,7 +46,7 @@ function embed_twine_ajax_upload() {
            $filepath = $movefile['file'];
            //echo "<div class='updated notice is-dismissible'><p>", "Original Twine story uploaded to ", $movefile['file'], "</p></div>" , "<br>", PHP_EOL;
            $message['original-file'] = $movefile['file'];
-           embed_twine_addFooterPassage($filepath, $message);
+           /*$message2 = */embed_twine_addFooterPassage($filepath, $message);
         } else {
            //echo "<div class='error notice'></p>", basename(__FILE__), " - " , $movefile['error'], "</p></div>" , "<br>", PHP_EOL;
            $message['move-error'] = $movefile['error'];
@@ -54,7 +54,7 @@ function embed_twine_ajax_upload() {
         }
     }
 
-    $message['shortcode'] = "LALA";
+    //echo json_encode(array_merge($message, $message2));
     echo json_encode($message);
     wp_die();
 }

@@ -90,6 +90,8 @@ function embed_twine_createPublicFolder(){
 // Process file
 function embed_twine_addFooterPassage($path, &$message){
 
+    //$message = array();
+
     $contents = embed_twine_loadFile($path);
 
     //find maxPID tw-passagedata pid="NUM"
@@ -147,7 +149,10 @@ function embed_twine_addFooterPassage($path, &$message){
     file_put_contents($responsiveStoryPath, $contentsFooter);
 
     $message['processed-file'] = $responsiveStoryPath;
-    $message['shortcode'] = $storyName;
+    $message['shortcode'] = "[embed_twine story=\"" . $storyName . "\"]";//[embed_twine story="SugarCubeStoryFooter"]
+    //$message['php'] = phpversion();
+
+    //return $message;
     //echo "<div class='updated notice is-dismissible'><p>", "Processed and modified version is stored in ", $responsiveStoryPath, "</p></div>" , "<br>", PHP_EOL;
     //echo "<div class='updated notice is-dismissible'><p>", "Processing Twine story complete. <br>Add shortcode [embed_twine story=\"", $storyName, "\"] into post or page." , "</p></div>" , "<br>", PHP_EOL;
 }
