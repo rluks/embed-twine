@@ -3,7 +3,7 @@ Contributors: rluks
 Tags: twine, twine 2, embed, embedding, insert, iframe
 Requires at least: 5.3
 Tested up to: 5.9
-Stable tag: trunk
+Stable tag: 0.0.7
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
