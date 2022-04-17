@@ -25,7 +25,7 @@
 <p>Copy this shortcode:</p>
 
 <input type="text" value="" readonly="" id="embed_twine_shortcode" size="30">
-<button class='button-primary' id="embed_twine_copy_shortcode">Copy</button>
+<button class='button-primary' id="embed_twine_copy_shortcode">Copy to clipboard</button>
 
 <h2>4. Paste the shortcode on a page</h2>
 <p>Insert the shortcode to any page or post, save it and enjoy your embedded story.</p>
