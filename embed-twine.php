@@ -27,6 +27,10 @@ function embed_twine_uploadfile(){
 wp_enqueue_script('eventism', plugins_url( '/js/file_upload.js' , __FILE__ ) , array( 'jquery' ));
 wp_localize_script( 'eventism', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php')));
 wp_register_script( "eventism", plugins_url( '/js/file_upload.js' , __FILE__ ), array('jquery') );
+
+wp_enqueue_script('clipboard-copy', plugins_url( '/js/embed-twine-clipboard-copy.js' , __FILE__ ) , array( 'jquery' ));
+wp_register_script( "clipboard-copy", plugins_url( '/js/embed-twine-clipboard-copy.js' , __FILE__ ), array('jquery') );
+
 wp_enqueue_script( 'jquery' );
 
 add_action( 'wp_ajax_nopriv_embed_twine_upload', 'embed_twine_ajax_upload');
