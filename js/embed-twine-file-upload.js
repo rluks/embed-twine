@@ -25,13 +25,15 @@ jQuery(document).ready(function(){
 
             var msgObj = JSON.parse(data);
             console.log(msgObj);    
-            status.append("Unmodified file is stored in " + msgObj.originalfile + "<br>");
+            status.append("Original (unmodified) file is stored in " + msgObj.originalfile + "<br>");
 
             if(msgObj.twineerror){
               status.append("Twine story processing error: " + msgObj.twineerror + "<br>");
               status.addClass("error");
               return;
             }
+           
+            status.append( "Processed and modified file is stored in " + msgObj.processedfile + "<br>");
        
             shortcode.val(msgObj.shortcode);
             shortcode.focus();
