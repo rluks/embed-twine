@@ -71,9 +71,9 @@ I've tested following formats:
 
 1. Twine iframe height is automatically adjusted (short passage).
 2. Twine iframe height is automatically adjusted (long passage).
-3. Upload Twine story.
-4. Let plugin do its work.
-5. Insert shortcode.
+3. Embed Twine plugin interface.
+4. Upload your Twine story and copy the shortcode.
+5. Insert shortcode on a page or post.
 
 == Changelog ==
 
