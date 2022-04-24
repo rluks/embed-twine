@@ -77,6 +77,9 @@ I've tested following formats:
 
 == Changelog ==
 
+= 0.1.0 =
+* Improved UI/UX
+
 = 0.0.9 =
 * Improved UI/UX
 
