@@ -3,7 +3,7 @@
 /**
 * Plugin Name: Embed Twine
 * Description: Insert Twine stories into WordPress
-* Version: 0.0.9
+* Version: 0.1.0
 * Author: Roman Luks
 * Author URI: https://romanluks.eu/
 * License: GPLv2 or later
