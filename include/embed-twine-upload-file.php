@@ -38,6 +38,15 @@ p {
   font-weight: 100;
 }
 
+input[type=file]::file-selector-button {
+  margin: 0rem .5rem;
+}
+
+input[type=file]::file-selector-button:hover {
+
+}
+
+
 
 </style>
 
